@@ -10,6 +10,4 @@ COPY *.go ./
 
 RUN go build -o /dsm-certtool
 
-EXPOSE 8080
-
-CMD [ "/dsm-certtool" ]
+ENTRYPOINT [ "/dsm-certtool" ]
