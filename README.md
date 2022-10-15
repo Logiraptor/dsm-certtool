@@ -5,7 +5,8 @@ A super small tool with one purpose: importing new certificates into Synology DS
 Usage:
 
 ```
-dsm-certtool -url http://storage:5000 -username username -password password -cert tls.crt -key tls.key
+export SYNO_PASSWORD=password
+dsm-certtool -url http://storage:5000 -username username -cert tls.crt -key tls.key
 ```
 
 The tool will automatically find and update existing certs based on the common

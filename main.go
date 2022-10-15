@@ -45,6 +45,12 @@ func main() {
 
 	flag.Parse()
 
+	if config.ClientConfig.Password == "" {
+		if password, ok := os.LookupEnv("SYNO_PASSWORD"); ok {
+			config.ClientConfig.Password = password
+		}
+	}
+
 	client := NewSynologyClient(config.ClientConfig)
 
 	version, err := client.GetAPIVersion("SYNO.API.Auth", "SYNO.Core.Certificate")
