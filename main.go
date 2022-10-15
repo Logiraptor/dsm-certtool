@@ -45,6 +45,11 @@ func main() {
 
 	flag.Parse()
 
+	if config.ClientConfig.Url == "" {
+		flag.Usage()
+		os.Exit(1)
+	}
+
 	if config.ClientConfig.Password == "" {
 		if password, ok := os.LookupEnv("SYNO_PASSWORD"); ok {
 			config.ClientConfig.Password = password
